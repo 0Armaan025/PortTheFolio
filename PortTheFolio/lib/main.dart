@@ -6,7 +6,9 @@ import 'package:rive_animation/components/menu_btn.dart';
 import 'package:rive_animation/components/side_menu.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/credentials/supabase.credentials.dart';
+import 'package:rive_animation/screens/entry_point.dart';
 import 'package:rive_animation/screens/home_screen.dart';
+import 'package:rive_animation/screens/onboding/onboding_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -76,60 +78,7 @@ class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {
               vertical: defpaultPadding * 1.2, horizontal: defpaultPadding),
         ),
       ),
-      home: Scaffold(
-        backgroundColor: backgroundColor2,
-        body: SafeArea(
-          child: Stack(
-            children: [
-              AnimatedPositioned(
-                duration: Duration(milliseconds: 200),
-                curve: Curves.fastOutSlowIn,
-                width: 288,
-                left: isSideMenuClosed ? -288 : 0,
-                height: MediaQuery.of(context).size.height,
-                child: SideMenu(),
-              ),
-              Transform(
-                alignment: Alignment.center,
-                transform: Matrix4.identity()
-                  ..setEntry(3, 2, 0.001)
-                  ..rotateY(animation.value - 30 * animation.value * pi / 180 ),
-                child: Transform.translate(
-                  offset: Offset(animation.value * 265, 0),
-                  child: Transform.scale(
-                    scale: scalAnimation.value,
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.all(Radius.circular(24)),
-                      child: const HomeScreen(),
-                    ),
-                  ),
-                ),
-              ),
-              MenuBtn(
-                riveOnInit: (artboard) {
-                  StateMachineController controller =
-                      RiveUtils.getRiveController(artboard,
-                          stateMachineName: "State Machine");
-                  isSideBarClosed = controller.findSMI("isOpen") as SMIBool;
-                  isSideBarClosed.value = true;
-                },
-                press: () {
-                  isSideBarClosed.value = !isSideBarClosed.value;
-
-                  if (isSideMenuClosed) {
-                    _animationController.forward();
-                  } else {
-                    _animationController.reverse();
-                  }
-                  setState(() {
-                    isSideMenuClosed = !isSideMenuClosed;
-                  });
-                },
-              ),
-            ],
-          ),
-        ),
-      ),
+      home: OnboardingScreen(),
     );
   }
 }

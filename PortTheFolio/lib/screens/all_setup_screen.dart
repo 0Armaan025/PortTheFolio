@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/home_screen.dart';
+import 'package:rive_animation/screens/entry_point.dart';
+
 import 'package:rive_animation/widgets/glowing_btn.dart';
 
 class AllSetupScreen extends StatefulWidget {
@@ -38,7 +39,7 @@ class _AllSetupScreenState extends State<AllSetupScreen> {
             ),
             GestureDetector(
               onTap: () {
-                moveScreen(context, HomeScreen());
+                moveScreen(context, EntryPoint());
               },
               child: GlowingButton(),
             ),

@@ -17,6 +17,7 @@ class SetUpProfileScreen extends StatefulWidget {
 class SetUpProfileScreenState extends State<SetUpProfileScreen> {
   final _nameController = TextEditingController();
   final _detailsController = TextEditingController();
+  final _professionController = TextEditingController();
 
   @override
   void dispose() {
@@ -24,6 +25,7 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
     super.dispose();
     _nameController.dispose;
     _detailsController.dispose();
+    _professionController.dispose();
   }
 
   @override
@@ -131,6 +133,20 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
                           ),
                         ),
                         const SizedBox(
+                          height: 10,
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 28.0),
+                          child: TextFormField(
+                            controller: _professionController,
+                            decoration: InputDecoration(
+                              hintStyle: TextStyle(color: Colors.grey.shade400),
+                              border: OutlineInputBorder(),
+                              hintText: "Profession",
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
                           height: 20,
                         ),
                         Padding(
@@ -170,8 +186,11 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
                   showAwesomeSnackBar(context, "Oops!",
                       "Hey there, you forgot to fill some fields!");
                 } else {
-                  DBService().addData(context, _nameController.text,
-                      _detailsController.text.trim());
+                  DBService().addData(
+                      context,
+                      _nameController.text,
+                      _detailsController.text.trim(),
+                      _professionController.text.trim());
                 }
               },
               child: NeoBtn(),

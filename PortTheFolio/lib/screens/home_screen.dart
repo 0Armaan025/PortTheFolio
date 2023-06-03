@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/screens/add_post_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -18,6 +19,13 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        backgroundColor: signup_bg,
+        onPressed: () {
+          moveScreen(context, AddPostScreen());
+        },
+        child: Icon(Icons.add),
+      ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(12),
         margin: const EdgeInsets.symmetric(horizontal: 24),

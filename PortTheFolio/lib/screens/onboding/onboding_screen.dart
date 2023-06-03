@@ -112,7 +112,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 const Padding(
                   padding: EdgeInsets.symmetric(vertical: 24.0),
                   child: Text(
-                      "Let's make amazing portfolios based on templates, meet amazing people, and get to know portfolios from another perspective!"),
+                      "Let's make amazing portfolios based on templates, meet amazing people, and get to know portfolios from another perspectives!"),
                 )
               ],
             ),
