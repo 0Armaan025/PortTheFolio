@@ -106,7 +106,6 @@ class _SignUpFormState extends State<SignUpForm> {
                 } else {
                   AuthenticationService().signUp(
                       context, _emailController.text, _passwordController.text);
-                  moveScreen(context, LoadingScreen(), isPushReplacement: true);
                 }
               },
               child: Container(

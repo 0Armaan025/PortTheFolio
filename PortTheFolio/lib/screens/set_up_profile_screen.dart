@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/service/db.service.dart';
+
 import 'package:rive_animation/widgets/neo_btn.dart';
 
 class SetUpProfileScreen extends StatefulWidget {
@@ -169,7 +170,7 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
                   showAwesomeSnackBar(context, "Oops!",
                       "Hey there, you forgot to fill some fields!");
                 } else {
-                  DBServices().addData(context, _nameController.text,
+                  DBService().addData(context, _nameController.text,
                       _detailsController.text.trim());
                 }
               },

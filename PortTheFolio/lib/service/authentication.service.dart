@@ -6,19 +6,17 @@ import 'package:supabase_flutter/supabase_flutter.dart';
 class AuthenticationService {
   final supabase = Supabase.instance.client;
   void signUp(BuildContext context, String email, String password) async {
-    try {
-      final AuthResponse res = await supabase.auth.signUp(
-        email: email,
-        password: password,
-      );
+    final AuthResponse res = await supabase.auth.signUp(
+      email: email,
+      password: password,
+    );
 
-      // if(res.)
-      // final Session? session = res.session;
+    // if(res.)
+    // final Session? session = res.session;
 
-      // final User? user = res.user;
-    } catch (e) {
-      showAwesomeSnackBar(context, "Oops!", e.toString());
-    }
+    // final User? user = res.user;
+
+    moveScreen(context, LoadingScreen());
   }
 
   void signIn(BuildContext context, String email, String password) async {
