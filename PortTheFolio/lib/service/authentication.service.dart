@@ -11,7 +11,10 @@ class AuthenticationService {
 
     // if(res.)
     final Session? session = res.session;
+
     final User? user = res.user;
-    print(user!.id);
   }
+
+
+  
 }
