@@ -2,7 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rive/rive.dart';
+import 'package:rive_animation/widgets/neo_btn.dart';
 
 class SetUpProfileScreen extends StatefulWidget {
   const SetUpProfileScreen({super.key});
@@ -70,7 +70,7 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
               width: 250,
               decoration: new BoxDecoration(),
               child: new BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 3.0, sigmaY: 0.0),
+                filter: ImageFilter.blur(sigmaX: 0.0, sigmaY: 0.0),
                 child: Container(
                   child: Card(
                     elevation: 5,
@@ -81,11 +81,21 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
                           child: Stack(
                             children: [
                               CircleAvatar(
-                                radius: 30,
+                                radius: 40,
                                 backgroundImage: NetworkImage(
                                   'https://i.pravatar.cc/150?img=65',
                                 ),
                               ),
+                              Positioned(
+                                  top: 45,
+                                  left: 40,
+                                  child: IconButton(
+                                    icon: Icon(
+                                      Icons.add_a_photo,
+                                      color: Colors.yellow.shade200,
+                                    ),
+                                    onPressed: () {},
+                                  )),
                             ],
                           ),
                         ),
@@ -101,7 +111,7 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
                               border: OutlineInputBorder(),
                               hintText: "Name",
                             ),
-                          ),
+                      ),
                         ),
                         const SizedBox(
                           height: 20,
@@ -129,8 +139,14 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
                   decoration:
                       new BoxDecoration(color: Colors.black.withOpacity(0.2)),
                 ),
+
+                //learning from youtube
               ),
             ),
+            const SizedBox(
+              height: 20,
+            ),
+            NeoBtn(),
           ],
         ),
       ),

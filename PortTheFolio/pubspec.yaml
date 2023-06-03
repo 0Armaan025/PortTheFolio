@@ -30,6 +30,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   audioplayers: ^4.1.0
+  awesome_snackbar_content: ^0.1.2
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
@@ -37,7 +38,9 @@ dependencies:
   google_fonts: ^4.0.4
   just_audio: ^0.9.34
   lottie: ^2.4.0
+  neumorphic_button: ^0.0.1+2
   rive: ^0.9.1
+  supabase_flutter: ^1.10.1
 
 dev_dependencies:
   flutter_test:

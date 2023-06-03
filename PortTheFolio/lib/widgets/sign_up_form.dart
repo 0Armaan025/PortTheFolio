@@ -1,5 +1,7 @@
+import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
 import 'package:rive_animation/screens/loading_screen.dart';
+import 'package:rive_animation/service/authentication.service.dart';
 
 import '../constants.dart';
 
@@ -13,6 +15,19 @@ class SignUpForm extends StatefulWidget {
 }
 
 class _SignUpFormState extends State<SignUpForm> {
+  final _emailController = TextEditingController();
+  final _passwordController = TextEditingController();
+  final _confirmPasswordController = TextEditingController();
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    _confirmPasswordController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,6 +43,7 @@ class _SignUpFormState extends State<SignUpForm> {
                 setState(() {});
               },
               child: TextFormField(
+                controller: _emailController,
                 style: TextStyle(
                   color: Colors.white,
                 ),
@@ -44,6 +60,7 @@ class _SignUpFormState extends State<SignUpForm> {
                   setState(() {});
                 },
                 child: TextFormField(
+                  controller: _passwordController,
                   style: TextStyle(
                     color: Colors.white,
                   ),
@@ -55,6 +72,7 @@ class _SignUpFormState extends State<SignUpForm> {
               ),
             ),
             TextFormField(
+              controller: _confirmPasswordController,
               obscureText: true,
               style: TextStyle(
                 color: Colors.white,
@@ -68,7 +86,28 @@ class _SignUpFormState extends State<SignUpForm> {
             ),
             InkWell(
               onTap: () {
-                moveScreen(context, LoadingScreen(), isPushReplacement: true);
+                if (_confirmPasswordController.text !=
+                    _passwordController.text) {
+                  final snackBar = SnackBar(
+                    /// need to set following properties for best effect of awesome_snackbar_content
+                    elevation: 0,
+                    behavior: SnackBarBehavior.floating,
+                    backgroundColor: Colors.transparent,
+                    content: AwesomeSnackbarContent(
+                      title: 'On Snap!',
+                      message: 'The passwords do not match!',
+                      contentType: ContentType.failure,
+                    ),
+                  );
+
+                  ScaffoldMessenger.of(context)
+                    ..hideCurrentSnackBar()
+                    ..showSnackBar(snackBar);
+                } else {
+                  AuthenticationService().signUp(
+                      context, _emailController.text, _passwordController.text);
+                  moveScreen(context, LoadingScreen(), isPushReplacement: true);
+                }
               },
               child: Container(
                 width: 150,

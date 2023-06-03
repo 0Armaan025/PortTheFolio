@@ -1,9 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/credentials/supabase.credentials.dart';
 
 import 'package:rive_animation/screens/onboding/onboding_screen.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  await Supabase.initialize(
+    url: SupaBaseCredentials.API_URL,
+    anonKey: SupaBaseCredentials.API_KEY,
+  );
   runApp(const MyApp());
 }
 
