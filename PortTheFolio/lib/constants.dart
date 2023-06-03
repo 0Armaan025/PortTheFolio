@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 const Color backgroundColor2 = Color(0xFF17203A);
 const Color backgroundColorLight = Color(0xFFF2F6FF);
@@ -51,4 +54,12 @@ showAwesomeSnackBar(BuildContext context, String title, String content) {
   ScaffoldMessenger.of(context)
     ..hideCurrentSnackBar()
     ..showSnackBar(snackBar);
+}
+
+File? imageFile;
+
+void pickImage(BuildContext context) async {
+  final ImagePicker _picker = ImagePicker();
+  final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
+  imageFile = File(image!.path);
 }

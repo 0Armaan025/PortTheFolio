@@ -4,6 +4,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:rive_animation/auth_screen.dart';
+import 'package:rive_animation/constants.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -15,6 +17,8 @@ class OnboardingScreen extends StatefulWidget {
 // Let's run the app rn
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
+  final supabase = Supabase.instance.client;
+
   late RiveAnimationController _btnAnimationController;
 
   @override
@@ -25,6 +29,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       autoplay: false,
       //let's restart the app and check
     );
+
     super.initState();
   }
 
@@ -94,8 +99,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 //It's time to add the animated button
                 GestureDetector(
                   onTap: () {
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => const AuthScreen()));
+                    final User? user = supabase.auth.currentUser;
+                    if (user != null) {
+                      print('user is signed up!');
+                    } else {
+                      moveScreen(context, AuthScreen());
+                    }
                   },
                   child: AnimatedButton(
                       btnAnimationController: _btnAnimationController),

@@ -2,6 +2,8 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/service/db.service.dart';
 import 'package:rive_animation/widgets/neo_btn.dart';
 
 class SetUpProfileScreen extends StatefulWidget {
@@ -80,12 +82,17 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
                         Center(
                           child: Stack(
                             children: [
-                              CircleAvatar(
-                                radius: 40,
-                                backgroundImage: NetworkImage(
-                                  'https://i.pravatar.cc/150?img=65',
-                                ),
-                              ),
+                              imageFile != null
+                                  ? CircleAvatar(
+                                      radius: 40,
+                                      backgroundImage: FileImage(imageFile!),
+                                    )
+                                  : CircleAvatar(
+                                      radius: 40,
+                                      backgroundImage: NetworkImage(
+                                        'https://i.pravatar.cc/150?img=65',
+                                      ),
+                                    ),
                               Positioned(
                                   top: 45,
                                   left: 40,
@@ -94,7 +101,16 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
                                       Icons.add_a_photo,
                                       color: Colors.yellow.shade200,
                                     ),
-                                    onPressed: () {},
+                                    onPressed: () {
+                                      pickImage(context);
+                                      setState(() {});
+                                      print("the image is seleced");
+                                      showAwesomeSnackBar(
+                                          context,
+                                          "Wonderful! 🥳",
+                                          "Your image is successfully selected!");
+                                      print(imageFile!.path);
+                                    },
                                   )),
                             ],
                           ),
@@ -111,7 +127,7 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
                               border: OutlineInputBorder(),
                               hintText: "Name",
                             ),
-                      ),
+                          ),
                         ),
                         const SizedBox(
                           height: 20,
@@ -146,7 +162,19 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
             const SizedBox(
               height: 20,
             ),
-            NeoBtn(),
+            GestureDetector(
+              onTap: () {
+                if (_nameController.text.isEmpty ||
+                    _detailsController.text.isEmpty) {
+                  showAwesomeSnackBar(context, "Oops!",
+                      "Hey there, you forgot to fill some fields!");
+                } else {
+                  DBServices().addData(context, _nameController.text,
+                      _detailsController.text.trim());
+                }
+              },
+              child: NeoBtn(),
+            ),
           ],
         ),
       ),

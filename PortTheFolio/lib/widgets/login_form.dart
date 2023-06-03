@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rive_animation/screens/loading_screen.dart';
+import 'package:rive_animation/service/authentication.service.dart';
 
 import '../constants.dart';
 
@@ -68,8 +68,13 @@ class _LoginFormState extends State<LoginForm> {
             ),
             InkWell(
               onTap: () {
-                Navigator.pushReplacement(context,
-                    MaterialPageRoute(builder: (context) => LoadingScreen()));
+                if (_passwordController.text == "") {
+                  showAwesomeSnackBar(context, "Fields not filled!",
+                      "Please fill all the respective fields!");
+                } else {
+                  AuthenticationService().signIn(
+                      context, _emailController.text, _passwordController.text);
+                }
               },
               child: Container(
                 width: 150,
