@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:rive_animation/screens/loading_screen.dart';
 
 import '../constants.dart';
 
@@ -31,6 +32,7 @@ class _LoginFormState extends State<LoginForm> {
                 setState(() {});
               },
               child: TextFormField(
+                controller: _emailController,
                 style: TextStyle(color: Colors.white),
                 decoration: const InputDecoration(
                   hintText: "Email",
@@ -39,45 +41,52 @@ class _LoginFormState extends State<LoginForm> {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(vertical: defpaultPadding),
-              child: TextFormField(
-                style: TextStyle(color: Colors.white),
-                obscureText: true,
-                decoration: const InputDecoration(
-                  hintText: "Password",
+              child: GestureDetector(
+                onTap: () {
+                  LogInFormFieldTapped = true;
+                  setState(() {});
+                },
+                child: TextFormField(
+                  controller: _passwordController,
+                  style: TextStyle(color: Colors.white),
+                  obscureText: true,
+                  decoration: const InputDecoration(
+                    hintText: "Password",
+                  ),
                 ),
               ),
             ),
-            GestureDetector(
-              onTap: () {
-                LogInFormFieldTapped = true;
-                setState(() {});
-              },
-              child: TextButton(
-                onPressed: () {},
-                child: const Text(
-                  "Forgot Password?",
-                  style: TextStyle(color: Colors.white),
-                ),
+            TextButton(
+              onPressed: () {},
+              child: const Text(
+                "Forgot Password?",
+                style: TextStyle(color: Colors.white),
               ),
             ),
             const SizedBox(
               height: 20,
             ),
-            Container(
-              width: 150,
-              decoration: BoxDecoration(
-                color: signup_bg,
-                borderRadius: BorderRadius.circular(8),
-              ),
-              height: 50,
-              alignment: Alignment.center,
-              child: Text(
-                "Log In",
-                style: TextStyle(
-                  fontFamily: "Poppins",
-                  color: Colors.white,
-                  fontSize: 14,
-                  // fontWeight: FontWeight.,
+            InkWell(
+              onTap: () {
+                Navigator.pushReplacement(context,
+                    MaterialPageRoute(builder: (context) => LoadingScreen()));
+              },
+              child: Container(
+                width: 150,
+                decoration: BoxDecoration(
+                  color: signup_bg,
+                  borderRadius: BorderRadius.circular(8),
+                ),
+                height: 50,
+                alignment: Alignment.center,
+                child: Text(
+                  "Log In",
+                  style: TextStyle(
+                    fontFamily: "Poppins",
+                    color: Colors.white,
+                    fontSize: 14,
+                    // fontWeight: FontWeight.,
+                  ),
                 ),
               ),
             ),

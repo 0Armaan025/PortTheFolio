@@ -14,3 +14,22 @@ bool LogInFormFieldTapped = false;
 
 const double defpaultPadding = 16.0;
 const Duration defaultDuration = Duration(milliseconds: 300);
+
+moveScreen(BuildContext context, Widget screenName,
+    {bool isPushReplacement = false}) {
+  if (isPushReplacement) {
+    Navigator.of(context)
+        .pushReplacement(MaterialPageRoute(builder: (context) => screenName));
+  } else {
+    Navigator.of(context)
+        .push(MaterialPageRoute(builder: (context) => screenName));
+  }
+}
+
+moveScreenWithTransition(BuildContext context, Widget screenName,
+    {bool isPushReplacement = false}) {
+  Navigator.of(context)
+      .pushReplacement(PageRouteBuilder(pageBuilder: (context, animation, _) {
+    return screenName;
+  }));
+}

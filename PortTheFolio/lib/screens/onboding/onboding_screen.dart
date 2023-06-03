@@ -76,7 +76,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                   child: Column(
                     children: const [
                       Text(
-                        "Let's understand the Portfolio",
+                        "Let's understand the Portfolios",
                         style: TextStyle(
                             fontSize: 45, fontFamily: "Poppins", height: 1),
                       ),
