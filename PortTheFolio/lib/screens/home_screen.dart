@@ -13,6 +13,8 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late SMIBool homeTrigger;
 
+  bool isSideMenuClosed = false;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
