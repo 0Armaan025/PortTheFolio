@@ -1,6 +1,5 @@
 import 'package:awesome_snackbar_content/awesome_snackbar_content.dart';
 import 'package:flutter/material.dart';
-import 'package:rive_animation/screens/loading_screen.dart';
 import 'package:rive_animation/service/authentication.service.dart';
 
 import '../constants.dart';
@@ -94,7 +93,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     behavior: SnackBarBehavior.floating,
                     backgroundColor: Colors.transparent,
                     content: AwesomeSnackbarContent(
-                      title: 'On Snap!',
+                      title: 'Oh Snap!',
                       message: 'The passwords do not match!',
                       contentType: ContentType.failure,
                     ),
