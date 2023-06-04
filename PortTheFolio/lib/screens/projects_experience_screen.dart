@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/screens/loading_screen_3.dart';
 
 import '../components/custom_bottom_navigation_bar.dart';
 
@@ -121,6 +123,36 @@ class _ProjectsExperienceScreenState extends State<ProjectsExperienceScreen> {
                 maxLines: null,
                 keyboardType: TextInputType.multiline,
               ),
+            ),
+            const SizedBox(
+              height: 20,
+            ),
+            Center(
+              child: InkWell(
+                onTap: () {
+                  moveScreen(context, LoadingScreen3());
+                },
+                child: Container(
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Continue ->",
+                    style: GoogleFonts.roboto(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
+                  ),
+                  width: double.infinity,
+                  margin: const EdgeInsets.symmetric(horizontal: 80),
+                  decoration: BoxDecoration(
+                    color: backgroundColor2,
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+              ),
+            ),
+            const SizedBox(
+              height: 30,
             ),
           ],
         ),
