@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/models/user_portfolio.dart';
 import 'package:rive_animation/screens/loading_screen_3.dart';
 
 import '../components/custom_bottom_navigation_bar.dart';
 
 class ProjectsExperienceScreen extends StatefulWidget {
-  const ProjectsExperienceScreen({super.key});
+  final UserPortfolio model;
+  const ProjectsExperienceScreen({super.key, required this.model});
 
   @override
   State<ProjectsExperienceScreen> createState() =>
@@ -130,7 +132,24 @@ class _ProjectsExperienceScreenState extends State<ProjectsExperienceScreen> {
             Center(
               child: InkWell(
                 onTap: () {
-                  moveScreen(context, LoadingScreen3());
+                  UserPortfolio newModel = UserPortfolio(
+                      name: widget.model.name,
+                      email: widget.model.email,
+                      profession: widget.model.profession,
+                      experience: widget.model.experience,
+                      internExperience: widget.model.internExperience,
+                      project1Title: _project1TitleController.text,
+                      project1Overview: _project1OverviewController.text,
+                      project2Title: _project2TitleController.text,
+                      project2Overview: _project1OverviewController.text,
+                      journeyStory: '',
+                      theme: '');
+                  setState(() {});
+                  moveScreen(
+                      context,
+                      LoadingScreen3(
+                        model: newModel,
+                      ));
                 },
                 child: Container(
                   height: 50,

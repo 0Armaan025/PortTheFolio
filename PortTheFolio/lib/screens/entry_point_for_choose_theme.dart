@@ -5,19 +5,19 @@ import 'package:rive/rive.dart';
 import 'package:rive_animation/components/menu_btn.dart';
 import 'package:rive_animation/components/side_menu.dart';
 import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/models/user_portfolio.dart';
 import 'package:rive_animation/screens/choose_theme_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
 class EntryPointForChooseTheme extends StatefulWidget {
-  const EntryPointForChooseTheme({super.key});
+  final UserPortfolio model;
+  const EntryPointForChooseTheme({super.key, required this.model});
 
   @override
-  State<EntryPointForChooseTheme> createState() =>
-      _EntryPointForChooseTheme();
+  State<EntryPointForChooseTheme> createState() => _EntryPointForChooseTheme();
 }
 
-class _EntryPointForChooseTheme
-    extends State<EntryPointForChooseTheme>
+class _EntryPointForChooseTheme extends State<EntryPointForChooseTheme>
     with SingleTickerProviderStateMixin {
   late SMIBool isSideBarClosed;
   bool isSideMenuClosed = true;
@@ -76,7 +76,9 @@ class _EntryPointForChooseTheme
                   scale: scalAnimation.value,
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(24)),
-                    child: const ChooseThemeScreen(),
+                    child: ChooseThemeScreen(
+                      model: widget.model,
+                    ),
                   ),
                 ),
               ),

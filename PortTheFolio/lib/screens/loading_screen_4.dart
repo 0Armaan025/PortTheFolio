@@ -4,10 +4,12 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/models/user_portfolio.dart';
 import 'package:rive_animation/screens/entry_point_for_choose_theme.dart';
 
 class LoadingScreen4 extends StatefulWidget {
-  const LoadingScreen4({super.key});
+  final UserPortfolio model;
+  const LoadingScreen4({super.key, required this.model});
 
   @override
   State<LoadingScreen4> createState() => _LoadingScreen4State();
@@ -20,7 +22,11 @@ class _LoadingScreen4State extends State<LoadingScreen4> {
     super.initState();
     Timer(
       Duration(milliseconds: 2500),
-      () => moveScreenWithTransition(context, EntryPointForChooseTheme()),
+      () => moveScreenWithTransition(
+          context,
+          EntryPointForChooseTheme(
+            model: widget.model,
+          )),
     );
   }
 

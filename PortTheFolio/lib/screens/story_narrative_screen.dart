@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:rive_animation/models/user_portfolio.dart';
 import 'package:rive_animation/screens/loading_screen_4.dart';
 
 import '../components/custom_bottom_navigation_bar.dart';
 import '../constants.dart';
 
 class StoryNarrativeScreen extends StatefulWidget {
-  const StoryNarrativeScreen({super.key});
+  final UserPortfolio model;
+  const StoryNarrativeScreen({super.key, required this.model});
 
   @override
   State<StoryNarrativeScreen> createState() => _StoryNarrativeScreenState();
@@ -98,7 +100,23 @@ class _StoryNarrativeScreenState extends State<StoryNarrativeScreen> {
             Center(
               child: InkWell(
                 onTap: () {
-                  moveScreen(context, LoadingScreen4());
+                  UserPortfolio newModel = UserPortfolio(
+                      name: widget.model.name,
+                      email: widget.model.email,
+                      profession: widget.model.profession,
+                      experience: widget.model.experience,
+                      internExperience: widget.model.internExperience,
+                      project1Title: widget.model.project1Title,
+                      project1Overview: widget.model.project1Overview,
+                      project2Title: widget.model.project2Title,
+                      project2Overview: widget.model.project2Overview,
+                      journeyStory: _storyController.text,
+                      theme: '');
+                  moveScreen(
+                      context,
+                      LoadingScreen4(
+                        model: newModel,
+                      ));
                 },
                 child: Container(
                   height: 50,

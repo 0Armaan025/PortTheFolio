@@ -4,11 +4,13 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/models/user_portfolio.dart';
 
 import 'entry_point_for_story_narrative_screen.dart';
 
 class LoadingScreen3 extends StatefulWidget {
-  const LoadingScreen3({super.key});
+  final UserPortfolio model;
+  const LoadingScreen3({super.key, required this.model});
 
   @override
   State<LoadingScreen3> createState() => _LoadingScreen3State();
@@ -22,7 +24,10 @@ class _LoadingScreen3State extends State<LoadingScreen3> {
     Timer(
       Duration(milliseconds: 3000),
       () => moveScreenWithTransition(
-          context, EntryPointForStoryNarrativeScreen()),
+          context,
+          EntryPointForStoryNarrativeScreen(
+            model: widget.model,
+          )),
     );
   }
 

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:motion_toast/motion_toast.dart';
+import 'package:rive_animation/models/user_portfolio.dart';
 
 import '../components/custom_bottom_navigation_bar.dart';
 
 class ChooseThemeScreen extends StatefulWidget {
-  const ChooseThemeScreen({super.key});
+  final UserPortfolio model;
+  const ChooseThemeScreen({super.key, required this.model});
 
   @override
   State<ChooseThemeScreen> createState() => _ChooseThemeScreenState();
@@ -152,6 +154,32 @@ class _ChooseThemeScreenState extends State<ChooseThemeScreen> {
                           "Your theme has been chosen, making your portfolio now!"),
                     ).show(context);
                   }
+                  String theme = "";
+                  if (isTheme1Chosen == true) {
+                    theme = "Classic";
+                  } else if (isTheme2Chosen == true) {
+                    theme = "Horror";
+                  } else {
+                    theme = "Ups and Downs";
+                  }
+                  setState(() {});
+
+                  UserPortfolio newModel = UserPortfolio(
+                      name: widget.model.name,
+                      email: widget.model.email,
+                      profession: widget.model.profession,
+                      experience: widget.model.experience,
+                      internExperience: widget.model.internExperience,
+                      project1Title: widget.model.project1Title,
+                      project1Overview: widget.model.project1Overview,
+                      project2Title: widget.model.project2Title,
+                      project2Overview: widget.model.project2Overview,
+                      journeyStory: widget.model.journeyStory,
+                      theme: theme);
+
+                  print(newModel);
+                  // print(model);
+                  setState(() {});
                 },
                 child: Container(
                   height: 50,

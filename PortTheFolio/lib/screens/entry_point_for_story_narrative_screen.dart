@@ -5,11 +5,13 @@ import 'package:rive/rive.dart';
 import 'package:rive_animation/components/menu_btn.dart';
 import 'package:rive_animation/components/side_menu.dart';
 import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/models/user_portfolio.dart';
 import 'package:rive_animation/screens/story_narrative_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
 class EntryPointForStoryNarrativeScreen extends StatefulWidget {
-  const EntryPointForStoryNarrativeScreen({super.key});
+  final UserPortfolio model;
+  const EntryPointForStoryNarrativeScreen({super.key, required this.model});
 
   @override
   State<EntryPointForStoryNarrativeScreen> createState() =>
@@ -76,7 +78,9 @@ class _EntryPointForStoryNarrativeScreenState
                   scale: scalAnimation.value,
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(24)),
-                    child: StoryNarrativeScreen(),
+                    child: StoryNarrativeScreen(
+                      model: widget.model,
+                    ),
                   ),
                 ),
               ),

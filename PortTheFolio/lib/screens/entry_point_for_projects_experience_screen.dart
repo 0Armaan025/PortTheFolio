@@ -8,8 +8,11 @@ import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/screens/projects_experience_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
+import '../models/user_portfolio.dart';
+
 class EntryPointForProjectsExperienceScreen extends StatefulWidget {
-  const EntryPointForProjectsExperienceScreen({super.key});
+  final UserPortfolio model;
+  const EntryPointForProjectsExperienceScreen({super.key, required this.model});
 
   @override
   State<EntryPointForProjectsExperienceScreen> createState() =>
@@ -76,7 +79,9 @@ class _EntryPointForProjectsExperienceScreenState
                   scale: scalAnimation.value,
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(24)),
-                    child: ProjectsExperienceScreen(),
+                    child: ProjectsExperienceScreen(
+                      model: widget.model,
+                    ),
                   ),
                 ),
               ),

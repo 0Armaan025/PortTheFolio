@@ -97,6 +97,31 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   height: 50,
                   alignment: Alignment.center,
                   child: Text(
+                    "Check your admin dashboard! 🔥",
+                    style: GoogleFonts.poppins(
+                      color: Colors.white,
+                      fontSize: 12,
+                    ),
+                  ),
+                  margin: const EdgeInsets.symmetric(horizontal: 60),
+                  decoration: BoxDecoration(
+                    color: Colors.blue,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 20,
+              ),
+              InkWell(
+                onTap: () {
+                  moveScreen(context, LoadingScreen2());
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: Text(
                     "Make your portfolio! 😄",
                     style: GoogleFonts.poppins(
                       color: Colors.white,
@@ -110,6 +135,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 40),
             ],
           ),
         ),

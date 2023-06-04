@@ -2,17 +2,17 @@
 import 'dart:convert';
 
 class UserPortfolio {
-  final String name;
-  final String email;
-  final String profession;
-  final String experience;
-  final String internExperience;
-  final String project1Title;
-  final String project1Overview;
-  final String project2Title;
-  final String project2Overview;
-  final String journeyStory;
-  final String theme;
+  String name;
+  String email;
+  String profession;
+  String experience;
+  String internExperience;
+  String project1Title;
+  String project1Overview;
+  String project2Title;
+  String project2Overview;
+  String journeyStory;
+  String theme;
   UserPortfolio({
     required this.name,
     required this.email,
