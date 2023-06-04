@@ -15,12 +15,11 @@ const Hero = () => {
             class="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full"
           >
             <Image
-
-                width={600}
-                height={400}
+              width={438}
+              height={884}
               alt="Party"
               src="/mockup.png"
-              class="absolute inset-0 h-full  md:scale-150 preview w-full object-cover"
+              class="absolute inset-0 h-full scale-75 md:scale-150 preview w-full object-cover"
             />
           </motion.div>
 
