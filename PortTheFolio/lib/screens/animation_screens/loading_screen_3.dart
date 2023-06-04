@@ -4,15 +4,20 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/entry_point_for_portfolio_making_startup_screen.dart';
-class LoadingScreen2 extends StatefulWidget {
-  const LoadingScreen2({super.key});
+import 'package:rive_animation/models/user_portfolio.dart';
+
+import '../entrypoint_screens/entry_point_for_story_narrative_screen.dart';
+
+
+class LoadingScreen3 extends StatefulWidget {
+  final UserPortfolio model;
+  const LoadingScreen3({super.key, required this.model});
 
   @override
-  State<LoadingScreen2> createState() => _LoadingScreen2State();
+  State<LoadingScreen3> createState() => _LoadingScreen3State();
 }
 
-class _LoadingScreen2State extends State<LoadingScreen2> {
+class _LoadingScreen3State extends State<LoadingScreen3> {
   @override
   void initState() {
     // TODO: implement initState
@@ -20,7 +25,10 @@ class _LoadingScreen2State extends State<LoadingScreen2> {
     Timer(
       Duration(milliseconds: 3000),
       () => moveScreenWithTransition(
-          context, EntryPointForPortfolioMakingStartUpScreen()),
+          context,
+          EntryPointForStoryNarrativeScreen(
+            model: widget.model,
+          )),
     );
   }
 
@@ -39,7 +47,7 @@ class _LoadingScreen2State extends State<LoadingScreen2> {
             height: 700,
             child: Center(
               child: Lottie.network(
-                  'https://assets7.lottiefiles.com/packages/lf20_q07pKG.json'),
+                  'https://assets9.lottiefiles.com/private_files/lf30_cldvedro.json'),
             ),
           ),
           const SizedBox(
@@ -47,7 +55,7 @@ class _LoadingScreen2State extends State<LoadingScreen2> {
           ),
           Center(
             child: Text(
-              "Porting...",
+              "Writing down your ideas...",
               style: GoogleFonts.poppins(
                 fontSize: 24,
               ),

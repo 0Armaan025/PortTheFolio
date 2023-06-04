@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive_animation/components/custom_bottom_navigation_bar.dart';
-import 'package:rive_animation/screens/loading_screen_2.dart';
 
-import '../constants.dart';
+import '../../constants.dart';
+import '../animation_screens/loading_screen_2.dart';
+
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -110,6 +111,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                 ),
               ),
+              const SizedBox(height: 40),
             ],
           ),
         ),

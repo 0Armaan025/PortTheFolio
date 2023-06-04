@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
-import 'package:rive_animation/screens/loading_screen_4.dart';
+import 'package:rive_animation/credentials/supabase.credentials.dart';
+import 'package:rive_animation/models/user_portfolio.dart';
 
-import '../components/custom_bottom_navigation_bar.dart';
-import '../constants.dart';
-
+import '../../components/custom_bottom_navigation_bar.dart';
+import '../../constants.dart';
+import '../animation_screens/loading_screen_4.dart';
 class StoryNarrativeScreen extends StatefulWidget {
-  const StoryNarrativeScreen({super.key});
+  final UserPortfolio model;
+  const StoryNarrativeScreen({super.key, required this.model});
 
   @override
   State<StoryNarrativeScreen> createState() => _StoryNarrativeScreenState();
@@ -21,6 +23,15 @@ class _StoryNarrativeScreenState extends State<StoryNarrativeScreen> {
     // TODO: implement dispose
     super.dispose();
     _storyController.dispose();
+  }
+
+  updateValue() async {
+    final response = await SupaBaseCredentials()
+        .supabaseClient
+        .from('user_table')
+        .update({'portfolioStory': _storyController.text.trim()})
+        .eq('email', email)
+        .execute();
   }
 
   @override
@@ -98,7 +109,27 @@ class _StoryNarrativeScreenState extends State<StoryNarrativeScreen> {
             Center(
               child: InkWell(
                 onTap: () {
-                  moveScreen(context, LoadingScreen4());
+                  UserPortfolio newModel = UserPortfolio(
+                      name: widget.model.name,
+                      email: widget.model.email,
+                      profession: widget.model.profession,
+                      experience: widget.model.experience,
+                      internExperience: widget.model.internExperience,
+                      project1Title: widget.model.project1Title,
+                      project1Overview: widget.model.project1Overview,
+                      project2Title: widget.model.project2Title,
+                      project2Overview: widget.model.project2Overview,
+                      journeyStory: _storyController.text,
+                      theme: '');
+
+                  updateValue();
+                  personStory = _storyController.text;
+                  setState(() {});
+                  moveScreen(
+                      context,
+                      LoadingScreen4(
+                        model: newModel,
+                      ));
                 },
                 child: Container(
                   height: 50,

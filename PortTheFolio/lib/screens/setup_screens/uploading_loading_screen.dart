@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/entry_point.dart';
+
+import '../entrypoint_screens/entry_point.dart';
 
 class UploadingLoadingScreen extends StatefulWidget {
   const UploadingLoadingScreen({super.key});

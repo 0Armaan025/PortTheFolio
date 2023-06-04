@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/entry_point.dart';
+
+import '../screens/entrypoint_screens/entry_point.dart';
 
 class GlowingButton extends StatefulWidget {
   final Color color1;

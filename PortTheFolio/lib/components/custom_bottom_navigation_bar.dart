@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/entry_point_for_profile_screen.dart';
-import 'package:rive_animation/screens/home_screen.dart';
+import 'package:rive_animation/screens/story_screens/home_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
+
+import '../screens/entrypoint_screens/entry_point.dart';
+import '../screens/entrypoint_screens/entry_point_for_profile_screen.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
   const CustomBottomNavigationBar({
@@ -28,6 +30,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
                     onTap: () {
                       if (index == 2) {
                         moveScreen(context, EntryPointForProfileScreen());
+                      } else if (index == 0) {
+                        moveScreen(context, EntryPoint());
                       }
 
                       bottomNavs[index].input!.change(true);

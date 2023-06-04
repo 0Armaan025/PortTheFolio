@@ -5,19 +5,21 @@ import 'package:rive/rive.dart';
 import 'package:rive_animation/components/menu_btn.dart';
 import 'package:rive_animation/components/side_menu.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/projects_experience_screen.dart';
+
 import 'package:rive_animation/utils/rive_utils.dart';
 
-class EntryPointForProjectsExperienceScreen extends StatefulWidget {
-  const EntryPointForProjectsExperienceScreen({super.key});
+import '../portfolio/portfolio_making_startup_screen.dart';
+
+class EntryPointForPortfolioMakingStartUpScreen extends StatefulWidget {
+  const EntryPointForPortfolioMakingStartUpScreen({super.key});
 
   @override
-  State<EntryPointForProjectsExperienceScreen> createState() =>
-      _EntryPointForProjectsExperienceScreenState();
+  State<EntryPointForPortfolioMakingStartUpScreen> createState() =>
+      _EntryPointForPortfolioMakingStartUpScreenState();
 }
 
-class _EntryPointForProjectsExperienceScreenState
-    extends State<EntryPointForProjectsExperienceScreen>
+class _EntryPointForPortfolioMakingStartUpScreenState
+    extends State<EntryPointForPortfolioMakingStartUpScreen>
     with SingleTickerProviderStateMixin {
   late SMIBool isSideBarClosed;
   bool isSideMenuClosed = true;
@@ -76,7 +78,7 @@ class _EntryPointForProjectsExperienceScreenState
                   scale: scalAnimation.value,
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(24)),
-                    child: ProjectsExperienceScreen(),
+                    child: const PortfolioMakingStartupScreen(),
                   ),
                 ),
               ),

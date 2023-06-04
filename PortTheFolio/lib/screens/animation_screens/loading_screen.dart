@@ -4,23 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/entry_point_for_choose_theme.dart';
+import 'package:rive_animation/service/wave_transition_loader.dart';
 
-class LoadingScreen4 extends StatefulWidget {
-  const LoadingScreen4({super.key});
+class LoadingScreen extends StatefulWidget {
+  const LoadingScreen({super.key});
 
   @override
-  State<LoadingScreen4> createState() => _LoadingScreen4State();
+  State<LoadingScreen> createState() => _LoadingScreenState();
 }
 
-class _LoadingScreen4State extends State<LoadingScreen4> {
+class _LoadingScreenState extends State<LoadingScreen> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     Timer(
-      Duration(milliseconds: 2500),
-      () => moveScreenWithTransition(context, EntryPointForChooseTheme()),
+      Duration(milliseconds: 3000),
+      () => moveScreenWithTransition(context, WaveTransitionLoader()),
     );
   }
 
@@ -39,7 +39,7 @@ class _LoadingScreen4State extends State<LoadingScreen4> {
             height: 700,
             child: Center(
               child: Lottie.network(
-                  'https://assets8.lottiefiles.com/packages/lf20_fQij9m.json'),
+                  'https://assets6.lottiefiles.com/packages/lf20_x62chJ.json'),
             ),
           ),
           const SizedBox(
@@ -47,7 +47,7 @@ class _LoadingScreen4State extends State<LoadingScreen4> {
           ),
           Center(
             child: Text(
-              "Trying to build...",
+              "Loading",
               style: GoogleFonts.poppins(
                 fontSize: 24,
               ),

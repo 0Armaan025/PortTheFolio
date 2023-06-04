@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:rive_animation/screens/entry_point_for_projects_experience_screen.dart';
+import 'package:rive_animation/models/user_portfolio.dart';
 
-import '../components/custom_bottom_navigation_bar.dart';
-import '../constants.dart';
+import '../../components/custom_bottom_navigation_bar.dart';
+import '../../constants.dart';
+import '../entrypoint_screens/entry_point_for_projects_experience_screen.dart';
 
 class PortfolioMakingStartupScreen extends StatefulWidget {
   const PortfolioMakingStartupScreen({super.key});
@@ -16,10 +17,18 @@ class PortfolioMakingStartupScreen extends StatefulWidget {
 class _PortfolioMakingStartupScreenState
     extends State<PortfolioMakingStartupScreen> {
   final _nameController = TextEditingController();
+  final _emailController = TextEditingController();
+  final _professionController = TextEditingController();
+  final _experienceController = TextEditingController();
+  final _internExperienceController = TextEditingController();
 
   void dispose() {
-    _nameController.dispose;
     super.dispose();
+    _nameController.dispose();
+    _emailController.dispose();
+    _professionController.dispose();
+    _experienceController.dispose();
+    _internExperienceController.dispose();
   }
 
   @override
@@ -105,7 +114,7 @@ class _PortfolioMakingStartupScreenState
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 48.0),
               child: TextFormField(
-                controller: _nameController,
+                controller: _emailController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -123,7 +132,7 @@ class _PortfolioMakingStartupScreenState
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 48.0),
               child: TextFormField(
-                controller: _nameController,
+                controller: _professionController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -141,7 +150,7 @@ class _PortfolioMakingStartupScreenState
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 48.0),
               child: TextFormField(
-                controller: _nameController,
+                controller: _experienceController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -159,7 +168,7 @@ class _PortfolioMakingStartupScreenState
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 48.0),
               child: TextFormField(
-                controller: _nameController,
+                controller: _internExperienceController,
                 decoration: InputDecoration(
                   border: OutlineInputBorder(
                     borderRadius: BorderRadius.circular(12),
@@ -183,7 +192,25 @@ class _PortfolioMakingStartupScreenState
             Center(
               child: InkWell(
                 onTap: () {
-                  moveScreen(context, EntryPointForProjectsExperienceScreen());
+                  UserPortfolio portfolio = UserPortfolio(
+                      name: _nameController.text,
+                      email: _emailController.text,
+                      profession: _professionController.text,
+                      experience: _experienceController.text,
+                      internExperience: _internExperienceController.text,
+                      project1Title: '',
+                      project1Overview: '',
+                      project2Title: '',
+                      project2Overview: '',
+                      journeyStory: '',
+                      theme: '');
+
+                  setState(() {});
+                  moveScreen(
+                      context,
+                      EntryPointForProjectsExperienceScreen(
+                        model: portfolio,
+                      ));
                 },
                 child: Container(
                   height: 50,

@@ -71,3 +71,7 @@ String email = "";
 String profession = "";
 
 String personDetails = "";
+
+String personStory = "";
+
+const apiSecretKey = "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";
