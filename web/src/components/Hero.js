@@ -19,7 +19,7 @@ const Hero = () => {
               height={442}
               alt="Party"
               src="/mockup.png"
-              class="absolute inset-0 h-full scale-75 md:scale-150 preview w-full object-cover"
+              class="absolute inset-0 h-full  preview w-full object-cover"
             />
           </motion.div>
 
