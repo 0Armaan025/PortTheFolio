@@ -136,6 +136,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                         child: InkWell(
                           onTap: () {
                             PostService().addPost(
+                              context,
                               _postTitleController.text,
                               _postDescriptionController.text.trim(),
                               username,

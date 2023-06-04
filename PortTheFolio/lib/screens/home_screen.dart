@@ -3,6 +3,7 @@ import 'package:rive/rive.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/screens/add_post_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
+import 'package:rive_animation/widgets/post_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -63,6 +64,24 @@ class _HomeScreenState extends State<HomeScreen> {
                       ),
                     ))
           ],
+        ),
+      ),
+      body: SafeArea(
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              const SizedBox(
+                height: 20,
+              ),
+              PostWidget(
+                  name: "Armaan",
+                  profession: "Developer",
+                  postTitle: "Title",
+                  postDescription:
+                      "Smoe description which is pretty long over here na ",
+                  githubLink: "https://github.com/0Armaan025")
+            ],
+          ),
         ),
       ),
     );
