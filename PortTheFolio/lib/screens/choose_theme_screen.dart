@@ -9,6 +9,7 @@ import 'package:rive_animation/models/user_portfolio.dart';
 import 'package:http/http.dart' as http;
 import 'package:rive_animation/screens/portfolio_code_screen.dart';
 import '../components/custom_bottom_navigation_bar.dart';
+import '../credentials/supabase.credentials.dart';
 
 class ChooseThemeScreen extends StatefulWidget {
   final UserPortfolio model;
@@ -24,6 +25,21 @@ class _ChooseThemeScreenState extends State<ChooseThemeScreen> {
   bool isTheme3Chosen = false;
 
   String _generatedText = "";
+
+  @override
+  void initState() {
+    super.initState();
+    updateValue();
+  }
+
+  updateValue() async {
+    final response = await SupaBaseCredentials()
+        .supabaseClient
+        .from('user_table')
+        .update({'portfolioStory': widget.model.journeyStory.trim()})
+        .eq('email', email)
+        .execute();
+  }
 
   Future<String> generateText(String prompt) async {
     // Here we have to create body based on the document

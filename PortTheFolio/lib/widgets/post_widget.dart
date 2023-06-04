@@ -1,16 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/screens/entry_point_for_profile_screen_for_viewers.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PostWidget extends StatefulWidget {
   final String name;
   final String profession;
   final String postTitle;
+  final String email;
   final String postDescription;
   final String githubLink;
   const PostWidget(
       {super.key,
+      required this.email,
       required this.name,
       required this.profession,
       required this.postTitle,
@@ -53,12 +56,21 @@ class _PostWidgetState extends State<PostWidget> {
               children: [
                 Padding(
                   padding: const EdgeInsets.all(12),
-                  child: CircleAvatar(
-                    radius: 32,
-                    backgroundColor: Colors.yellow,
+                  child: InkWell(
+                    onTap: () {
+                      moveScreen(
+                          context,
+                          EntryPointForProfileScreenForViewers(
+                            email: widget.email,
+                          ));
+                    },
                     child: CircleAvatar(
-                      radius: 30,
-                      backgroundImage: FileImage(imageFile!),
+                      radius: 32,
+                      backgroundColor: Colors.yellow,
+                      child: CircleAvatar(
+                        radius: 30,
+                        backgroundImage: FileImage(imageFile!),
+                      ),
                     ),
                   ),
                 ),

@@ -142,6 +142,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                               username,
                               _githubLinkController.text,
                               profession,
+                              email,
                             );
                             moveScreen(context, UploadingLoadingScreen(),
                                 isPushReplacement: true);

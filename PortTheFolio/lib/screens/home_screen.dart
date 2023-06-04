@@ -53,11 +53,13 @@ class _HomeScreenState extends State<HomeScreen> {
               itemBuilder: (context, index) {
                 final row = data[index];
                 return PostWidget(
-                    name: row['userName'],
-                    profession: row['userProfession'],
-                    postTitle: row['postTitle'],
-                    postDescription: row['postDescription'],
-                    githubLink: row['githubLink']);
+                  name: row['userName'],
+                  profession: row['userProfession'],
+                  postTitle: row['postTitle'],
+                  postDescription: row['postDescription'],
+                  githubLink: row['githubLink'],
+                  email: row['userEmail'],
+                );
               },
             );
           } else if (snapshot.hasError) {

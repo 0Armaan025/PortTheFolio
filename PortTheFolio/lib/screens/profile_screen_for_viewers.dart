@@ -1,18 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive_animation/components/custom_bottom_navigation_bar.dart';
-import 'package:rive_animation/screens/loading_screen_2.dart';
+import 'package:rive_animation/screens/story_time_screen.dart';
 
 import '../constants.dart';
 
-class ProfileScreen extends StatefulWidget {
-  const ProfileScreen({super.key});
+class ProfileScreenForViewers extends StatefulWidget {
+  final String email;
+  const ProfileScreenForViewers({super.key, required this.email});
 
   @override
-  State<ProfileScreen> createState() => _ProfileScreenState();
+  State<ProfileScreenForViewers> createState() =>
+      _ProfileScreenForViewersState();
 }
 
-class _ProfileScreenState extends State<ProfileScreen> {
+class _ProfileScreenForViewersState extends State<ProfileScreenForViewers> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -90,14 +92,14 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               InkWell(
                 onTap: () {
-                  moveScreen(context, LoadingScreen2());
+                  moveScreen(context, StoryTimeScreen(email: widget.email));
                 },
                 child: Container(
                   width: double.infinity,
                   height: 50,
                   alignment: Alignment.center,
                   child: Text(
-                    "Make your portfolio! 😄",
+                    "Story time!",
                     style: GoogleFonts.poppins(
                       color: Colors.white,
                       fontSize: 18,

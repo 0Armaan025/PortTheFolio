@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
+import 'package:rive_animation/credentials/supabase.credentials.dart';
 import 'package:rive_animation/models/user_portfolio.dart';
 import 'package:rive_animation/screens/loading_screen_4.dart';
 
@@ -23,6 +24,15 @@ class _StoryNarrativeScreenState extends State<StoryNarrativeScreen> {
     // TODO: implement dispose
     super.dispose();
     _storyController.dispose();
+  }
+
+  updateValue() async {
+    final response = await SupaBaseCredentials()
+        .supabaseClient
+        .from('user_table')
+        .update({'portfolioStory': _storyController.text.trim()})
+        .eq('email', email)
+        .execute();
   }
 
   @override
@@ -112,6 +122,10 @@ class _StoryNarrativeScreenState extends State<StoryNarrativeScreen> {
                       project2Overview: widget.model.project2Overview,
                       journeyStory: _storyController.text,
                       theme: '');
+
+                  updateValue();
+                  personStory = _storyController.text;
+                  setState(() {});
                   moveScreen(
                       context,
                       LoadingScreen4(

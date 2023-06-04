@@ -72,4 +72,6 @@ String profession = "";
 
 String personDetails = "";
 
-const apiSecretKey = "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";
+String personStory = "";
+
+const apiSecretKey = "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";

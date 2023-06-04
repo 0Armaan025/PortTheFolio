@@ -1,3 +1,4 @@
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive_animation/components/custom_bottom_navigation_bar.dart';
@@ -47,22 +48,27 @@ class _PortfolioCodeScreenState extends State<PortfolioCodeScreen> {
               ),
             ),
             const SizedBox(height: 20),
-            Center(
-              child: Container(
-                width: double.infinity,
-                height: 50,
-                alignment: Alignment.center,
-                child: Text(
-                  "Copy Code!",
-                  style: GoogleFonts.roboto(
-                    color: Colors.white,
-                    fontSize: 18,
+          Center(
+              child: InkWell(
+                onTap: () {
+                  FlutterClipboard.copy(widget.portfolioCode);
+                },
+                child: Container(
+                  width: double.infinity,
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Copy Code!",
+                    style: GoogleFonts.roboto(
+                      color: Colors.white,
+                      fontSize: 18,
+                    ),
                   ),
-                ),
-                margin: const EdgeInsets.symmetric(horizontal: 20),
-                decoration: BoxDecoration(
-                  color: backgroundColor2,
-                  borderRadius: BorderRadius.circular(12),
+                  margin: const EdgeInsets.symmetric(horizontal: 20),
+                  decoration: BoxDecoration(
+                    color: backgroundColor2,
+                    borderRadius: BorderRadius.circular(12),
+                  ),
                 ),
               ),
             ),
