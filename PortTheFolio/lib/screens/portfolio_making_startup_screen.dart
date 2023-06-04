@@ -20,7 +20,7 @@ class _PortfolioMakingStartupScreenState
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: Text(
-          'My Profile',
+          'Porting the Folio time!!',
           style: TextStyle(color: Colors.black),
         ),
         centerTitle: true,

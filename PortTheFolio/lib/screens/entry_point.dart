@@ -6,7 +6,6 @@ import 'package:rive_animation/components/menu_btn.dart';
 import 'package:rive_animation/components/side_menu.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/screens/home_screen.dart';
-import 'package:rive_animation/screens/onboding/onboding_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
 class EntryPoint extends StatefulWidget {

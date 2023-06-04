@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive_animation/components/custom_bottom_navigation_bar.dart';
+import 'package:rive_animation/screens/loading_screen_2.dart';
 
 import '../constants.dart';
-import 'entry_point_for_portfolio_making_startup_screen.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -90,8 +90,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               InkWell(
                 onTap: () {
-                  moveScreen(
-                      context, EntryPointForPortfolioMakingStartUpScreen());
+                  moveScreen(context, LoadingScreen2());
                 },
                 child: Container(
                   width: double.infinity,
