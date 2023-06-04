@@ -188,6 +188,7 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
                 } else {
                   username = _nameController.text;
                   profession = _professionController.text;
+                  personDetails = _detailsController.text;
                   setState(() {});
 
                   DBService().addData(

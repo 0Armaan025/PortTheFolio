@@ -69,3 +69,5 @@ String username = "";
 String email = "";
 
 String profession = "";
+
+String personDetails = "";

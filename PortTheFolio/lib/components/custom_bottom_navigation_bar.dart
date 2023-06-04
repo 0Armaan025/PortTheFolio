@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/screens/entry_point_for_profile_screen.dart';
 import 'package:rive_animation/screens/home_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
@@ -25,6 +26,10 @@ class CustomBottomNavigationBar extends StatelessWidget {
               bottomNavs.length,
               (index) => GestureDetector(
                     onTap: () {
+                      if (index == 2) {
+                        moveScreen(context, EntryPointForProfileScreen());
+                      }
+
                       bottomNavs[index].input!.change(true);
                       Future.delayed(Duration(seconds: 1), (() {}));
                       bottomNavs[index].input!.change(false);

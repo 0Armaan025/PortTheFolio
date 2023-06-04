@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:rive_animation/components/info_card.dart';
 import 'package:rive_animation/components/side_menu_tile.dart';
+import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/screens/home_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
@@ -26,7 +27,7 @@ class _SideMenuState extends State<SideMenu> {
         child: SafeArea(
           child: Column(
             children: [
-              const InfoCard(name: "Armaan", profession: "Developer"),
+              InfoCard(name: "${username}", profession: profession),
               Padding(
                 padding: const EdgeInsets.only(left: 24.0, top: 32, bottom: 16),
                 child: Text(
