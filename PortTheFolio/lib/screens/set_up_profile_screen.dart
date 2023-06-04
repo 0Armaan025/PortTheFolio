@@ -186,6 +186,10 @@ class SetUpProfileScreenState extends State<SetUpProfileScreen> {
                   showAwesomeSnackBar(context, "Oops!",
                       "Hey there, you forgot to fill some fields!");
                 } else {
+                  username = _nameController.text;
+                  profession = _professionController.text;
+                  setState(() {});
+
                   DBService().addData(
                       context,
                       _nameController.text,

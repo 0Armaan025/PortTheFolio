@@ -103,6 +103,8 @@ class _SignUpFormState extends State<SignUpForm> {
                     ..hideCurrentSnackBar()
                     ..showSnackBar(snackBar);
                 } else {
+                  email = _emailController.text;
+                  setState(() {});
                   AuthenticationService().signUp(
                       context, _emailController.text, _passwordController.text);
                 }
