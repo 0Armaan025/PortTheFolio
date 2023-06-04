@@ -15,9 +15,9 @@ const Hero = () => {
             class="relative h-64 overflow-hidden rounded-lg sm:h-80 lg:order-last lg:h-full"
           >
             <Image
-            
+
                 width={600}
-                height={500}
+                height={400}
               alt="Party"
               src="/mockup.png"
               class="absolute inset-0 h-full  md:scale-150 preview w-full object-cover"
