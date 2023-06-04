@@ -1,5 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:rive_animation/constants.dart';
 
 class InfoCard extends StatelessWidget {
   const InfoCard({
@@ -15,10 +15,7 @@ class InfoCard extends StatelessWidget {
     return ListTile(
       leading: CircleAvatar(
         backgroundColor: Colors.white24,
-        child: Icon(
-          CupertinoIcons.person,
-          color: Colors.white,
-        ),
+        backgroundImage: FileImage(imageFile!),
       ),
       title: Text(
         name,

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/home_screen.dart';
+import 'package:rive_animation/screens/entry_point.dart';
 
 class GlowingButton extends StatefulWidget {
   final Color color1;
@@ -22,7 +22,7 @@ class _GlowingButtonState extends State<GlowingButton> {
     //However for desktop and web we can show this effect on hover too
     return GestureDetector(
       onTap: () {
-        moveScreen(context, HomeScreen());
+        moveScreen(context, EntryPoint());
       },
       onTapUp: (val) {
         setState(() {

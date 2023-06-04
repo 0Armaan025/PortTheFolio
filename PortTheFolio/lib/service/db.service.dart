@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rive_animation/constants.dart';
+import 'package:rive_animation/credentials/supabase.credentials.dart';
 import 'package:rive_animation/screens/all_setup_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
@@ -26,12 +27,21 @@ class DBService {
       'name': name,
       'personDetails': personDetails,
       'profession': profession,
-      'portfolioMainParagraph': '',
+      'portfolioStory': '',
       'amountOfViews': 0,
       'amountOfListens': 0,
     };
 
     await supabase.from('user_table').insert(data).execute();
+
+    //why?
+
+    var res = await SupaBaseCredentials()
+        .supabaseClient
+        .storage
+        .from("avatars")
+        .upload("public", imageFile!);
+    print(res);
     moveScreen(context, AllSetupScreen());
   }
 }

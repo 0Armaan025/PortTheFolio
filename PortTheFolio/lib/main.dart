@@ -1,16 +1,9 @@
-import 'dart:math';
-
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-import 'package:rive_animation/components/menu_btn.dart';
-import 'package:rive_animation/components/side_menu.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/credentials/supabase.credentials.dart';
-import 'package:rive_animation/screens/entry_point.dart';
-import 'package:rive_animation/screens/home_screen.dart';
+import 'package:rive_animation/screens/no_internet_screen.dart';
 import 'package:rive_animation/screens/onboding/onboding_screen.dart';
-import 'package:rive_animation/utils/rive_utils.dart';
-
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 void main() async {

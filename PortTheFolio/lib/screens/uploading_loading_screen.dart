@@ -3,7 +3,6 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/screens/entry_point.dart';
-import 'package:rive_animation/screens/home_screen.dart';
 
 class UploadingLoadingScreen extends StatefulWidget {
   const UploadingLoadingScreen({super.key});
@@ -16,7 +15,8 @@ class _UploadingLoadingScreenState extends State<UploadingLoadingScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 1), () {
+
+    Future.delayed(Duration(seconds: 3), () {
       moveScreen(context, EntryPoint(), isPushReplacement: true);
     });
   }

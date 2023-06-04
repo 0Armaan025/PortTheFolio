@@ -63,3 +63,11 @@ void pickImage(BuildContext context) async {
   final XFile? image = await _picker.pickImage(source: ImageSource.gallery);
   imageFile = File(image!.path);
 }
+
+String username = "";
+
+String email = "";
+
+String profession = "";
+
+String personDetails = "";
