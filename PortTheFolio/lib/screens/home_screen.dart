@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
+import 'package:rive_animation/components/custom_bottom_navigation_bar.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/screens/add_post_screen.dart';
-import 'package:rive_animation/utils/rive_utils.dart';
 import 'package:rive_animation/widgets/post_widget.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -20,6 +21,16 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+        elevation: 0,
+        title: Text(
+          'Home',
+          style: TextStyle(color: Colors.black),
+        ),
+        centerTitle: true,
+      ),
       floatingActionButton: FloatingActionButton(
         backgroundColor: signup_bg,
         onPressed: () {
@@ -27,62 +38,34 @@ class _HomeScreenState extends State<HomeScreen> {
         },
         child: Icon(Icons.add),
       ),
-      bottomNavigationBar: Container(
-        padding: EdgeInsets.all(12),
-        margin: const EdgeInsets.symmetric(horizontal: 24),
-        decoration: BoxDecoration(
-          color: backgroundColor2.withOpacity(0.8),
-          borderRadius: BorderRadius.circular(24),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            ...List.generate(
-                bottomNavs.length,
-                (index) => GestureDetector(
-                      onTap: () {
-                        bottomNavs[index].input!.change(true);
-                        Future.delayed(Duration(seconds: 1), (() {}));
-                        bottomNavs[index].input!.change(false);
-                      },
-                      child: SizedBox(
-                        height: 36,
-                        width: 36,
-                        child: RiveAnimation.asset(
-                          bottomNavs.first.src,
-                          artboard: bottomNavs[index].artboard,
-                          onInit: (artboard) {
-                            StateMachineController controller =
-                                RiveUtils.getRiveController(artboard,
-                                    stateMachineName:
-                                        bottomNavs[index].stateMachineName);
-
-                            bottomNavs[index].input =
-                                controller.findSMI("active") as SMIBool;
-                          },
-                        ),
-                      ),
-                    ))
-          ],
-        ),
-      ),
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              const SizedBox(
-                height: 20,
-              ),
-              PostWidget(
-                  name: "Armaan",
-                  profession: "Developer",
-                  postTitle: "Title",
-                  postDescription:
-                      "Smoe description which is pretty long over here na ",
-                  githubLink: "https://github.com/0Armaan025")
-            ],
-          ),
-        ),
+      bottomNavigationBar: CustomBottomNavigationBar(),
+      body: StreamBuilder<PostgrestResponse>(
+        stream: Supabase.instance.client
+            .from('posts_table')
+            .select()
+            .execute()
+            .asStream(),
+        builder: (context, snapshot) {
+          if (snapshot.hasData) {
+            final data = snapshot.data!.data;
+            return ListView.builder(
+              itemCount: data.length,
+              itemBuilder: (context, index) {
+                final row = data[index];
+                return PostWidget(
+                    name: row['userName'],
+                    profession: row['userProfession'],
+                    postTitle: row['postTitle'],
+                    postDescription: row['postDescription'],
+                    githubLink: row['githubLink']);
+              },
+            );
+          } else if (snapshot.hasError) {
+            return Text('Error: ${snapshot.error}');
+          } else {
+            return CircularProgressIndicator();
+          }
+        },
       ),
     );
   }
