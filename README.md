@@ -1,10 +1,4 @@
 
-
-<img src="https://github.com/0Armaan025/PortTheFolio/assets/58517896/6bb00197-f07a-401d-bc08-aec489e430b0"  width="219" height="442">
-<img src="https://github.com/0Armaan025/PortTheFolio/assets/58517896/7bb20359-7c64-4671-9256-4e9b70c4a7fd"  width="219" height="442">
-<img src="https://github.com/0Armaan025/PortTheFolio/assets/58517896/de3fbd05-e158-48b1-be34-d2bc25efe8ab"  width="219" height="442">
-<img src="https://github.com/0Armaan025/PortTheFolio/assets/58517896/7a6af488-2494-428b-8286-915466697c0a"  width="219" height="442">
-
  <h1 align="center"> PortTheFolio</h1>
  
 [![Flutter Version](https://img.shields.io/badge/flutter-v2.5-blue)](https://flutter.dev/)
@@ -51,6 +45,13 @@ Follow these steps to get started with the Interactive Portfolio Storytelling ap
     ```
 
 5. **Explore and Customize:** Explore the app's features and customize it according to your needs. Refer to the app's documentation and codebase for detailed instructions on how to modify and extend the functionality.
+
+## Demo
+
+<img src="https://github.com/0Armaan025/PortTheFolio/assets/58517896/6bb00197-f07a-401d-bc08-aec489e430b0"  width="219" height="442">
+<img src="https://github.com/0Armaan025/PortTheFolio/assets/58517896/7bb20359-7c64-4671-9256-4e9b70c4a7fd"  width="219" height="442">
+<img src="https://github.com/0Armaan025/PortTheFolio/assets/58517896/de3fbd05-e158-48b1-be34-d2bc25efe8ab"  width="219" height="442">
+<img src="https://github.com/0Armaan025/PortTheFolio/assets/58517896/7a6af488-2494-428b-8286-915466697c0a"  width="219" height="442">
 
 ## Contributing
 
