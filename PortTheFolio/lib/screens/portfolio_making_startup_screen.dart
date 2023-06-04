@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rive_animation/screens/entry_point_for_projects_experience_screen.dart';
 
 import '../components/custom_bottom_navigation_bar.dart';
 import '../constants.dart';
@@ -180,21 +181,26 @@ class _PortfolioMakingStartupScreenState
             //button here
 
             Center(
-              child: Container(
-                height: 50,
-                alignment: Alignment.center,
-                child: Text(
-                  "Continue ->",
-                  style: GoogleFonts.roboto(
-                    color: Colors.white,
-                    fontSize: 24,
+              child: InkWell(
+                onTap: () {
+                  moveScreen(context, EntryPointForProjectsExperienceScreen());
+                },
+                child: Container(
+                  height: 50,
+                  alignment: Alignment.center,
+                  child: Text(
+                    "Continue ->",
+                    style: GoogleFonts.roboto(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
                   ),
-                ),
-                width: double.infinity,
-                margin: const EdgeInsets.symmetric(horizontal: 40),
-                decoration: BoxDecoration(
-                  color: Colors.lightBlue,
-                  borderRadius: BorderRadius.circular(22),
+                  width: double.infinity,
+                  margin: const EdgeInsets.symmetric(horizontal: 40),
+                  decoration: BoxDecoration(
+                    color: Colors.lightBlue,
+                    borderRadius: BorderRadius.circular(22),
+                  ),
                 ),
               ),
             ),
