@@ -5,26 +5,28 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/models/user_portfolio.dart';
-import 'package:rive_animation/screens/entry_point_for_choose_theme.dart';
 
-class LoadingScreen4 extends StatefulWidget {
+import '../entrypoint_screens/entry_point_for_story_narrative_screen.dart';
+
+
+class LoadingScreen3 extends StatefulWidget {
   final UserPortfolio model;
-  const LoadingScreen4({super.key, required this.model});
+  const LoadingScreen3({super.key, required this.model});
 
   @override
-  State<LoadingScreen4> createState() => _LoadingScreen4State();
+  State<LoadingScreen3> createState() => _LoadingScreen3State();
 }
 
-class _LoadingScreen4State extends State<LoadingScreen4> {
+class _LoadingScreen3State extends State<LoadingScreen3> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     Timer(
-      Duration(milliseconds: 2500),
+      Duration(milliseconds: 3000),
       () => moveScreenWithTransition(
           context,
-          EntryPointForChooseTheme(
+          EntryPointForStoryNarrativeScreen(
             model: widget.model,
           )),
     );
@@ -45,7 +47,7 @@ class _LoadingScreen4State extends State<LoadingScreen4> {
             height: 700,
             child: Center(
               child: Lottie.network(
-                  'https://assets8.lottiefiles.com/packages/lf20_fQij9m.json'),
+                  'https://assets9.lottiefiles.com/private_files/lf30_cldvedro.json'),
             ),
           ),
           const SizedBox(
@@ -53,7 +55,7 @@ class _LoadingScreen4State extends State<LoadingScreen4> {
           ),
           Center(
             child: Text(
-              "Trying to build...",
+              "Writing down your ideas...",
               style: GoogleFonts.poppins(
                 fontSize: 24,
               ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
-import 'package:rive_animation/screens/home_screen.dart';
+import 'package:rive_animation/screens/story_screens/home_screen.dart';
 
 class SideMenuTile extends StatelessWidget {
   const SideMenuTile({

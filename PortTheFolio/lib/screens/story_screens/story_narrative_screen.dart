@@ -3,11 +3,10 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/credentials/supabase.credentials.dart';
 import 'package:rive_animation/models/user_portfolio.dart';
-import 'package:rive_animation/screens/loading_screen_4.dart';
 
-import '../components/custom_bottom_navigation_bar.dart';
-import '../constants.dart';
-
+import '../../components/custom_bottom_navigation_bar.dart';
+import '../../constants.dart';
+import '../animation_screens/loading_screen_4.dart';
 class StoryNarrativeScreen extends StatefulWidget {
   final UserPortfolio model;
   const StoryNarrativeScreen({super.key, required this.model});

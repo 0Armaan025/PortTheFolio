@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/entry_point_for_profile_screen_for_viewers.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../screens/entrypoint_screens/entry_point_for_profile_screen_for_viewers.dart';
 
 class PostWidget extends StatefulWidget {
   final String name;

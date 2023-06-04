@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:rive/rive.dart';
 import 'package:rive_animation/components/custom_bottom_navigation_bar.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/add_post_screen.dart';
 import 'package:rive_animation/widgets/post_widget.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../portfolio/add_post_screen.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});

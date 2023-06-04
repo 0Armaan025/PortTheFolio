@@ -3,7 +3,7 @@ import 'package:rive/rive.dart';
 import 'package:rive_animation/components/info_card.dart';
 import 'package:rive_animation/components/side_menu_tile.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/home_screen.dart';
+import 'package:rive_animation/screens/story_screens/home_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
 class SideMenu extends StatefulWidget {

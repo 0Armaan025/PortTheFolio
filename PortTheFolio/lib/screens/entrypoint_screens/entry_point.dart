@@ -5,17 +5,17 @@ import 'package:rive/rive.dart';
 import 'package:rive_animation/components/menu_btn.dart';
 import 'package:rive_animation/components/side_menu.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/profile_screen.dart';
+import 'package:rive_animation/screens/story_screens/home_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
-class EntryPointForProfileScreen extends StatefulWidget {
-  const EntryPointForProfileScreen({super.key});
+class EntryPoint extends StatefulWidget {
+  const EntryPoint({super.key});
 
   @override
-  State<EntryPointForProfileScreen> createState() => _EntryPointForProfileScreenState();
+  State<EntryPoint> createState() => _EntryPointState();
 }
 
-class _EntryPointForProfileScreenState extends State<EntryPointForProfileScreen>
+class _EntryPointState extends State<EntryPoint>
     with SingleTickerProviderStateMixin {
   late SMIBool isSideBarClosed;
   bool isSideMenuClosed = true;
@@ -74,7 +74,7 @@ class _EntryPointForProfileScreenState extends State<EntryPointForProfileScreen>
                   scale: scalAnimation.value,
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(24)),
-                    child: const ProfileScreen(),
+                    child: const HomeScreen(),
                   ),
                 ),
               ),

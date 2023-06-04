@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/loading_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
+
+import '../screens/animation_screens/loading_screen.dart';
 
 class AuthenticationService {
   final supabase = Supabase.instance.client;

@@ -5,22 +5,22 @@ import 'package:rive/rive.dart';
 import 'package:rive_animation/components/menu_btn.dart';
 import 'package:rive_animation/components/side_menu.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/profile_screen_for_viewers.dart';
+import 'package:rive_animation/screens/portfolio/projects_experience_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
-import '../models/user_portfolio.dart';
+import '../../models/user_portfolio.dart';
 
-class EntryPointForProfileScreenForViewers extends StatefulWidget {
-  final String email;
-  const EntryPointForProfileScreenForViewers({super.key, required this.email});
+class EntryPointForProjectsExperienceScreen extends StatefulWidget {
+  final UserPortfolio model;
+  const EntryPointForProjectsExperienceScreen({super.key, required this.model});
 
   @override
-  State<EntryPointForProfileScreenForViewers> createState() =>
-      _EntryPointForProfileScreenForViewersState();
+  State<EntryPointForProjectsExperienceScreen> createState() =>
+      _EntryPointForProjectsExperienceScreenState();
 }
 
-class _EntryPointForProfileScreenForViewersState
-    extends State<EntryPointForProfileScreenForViewers>
+class _EntryPointForProjectsExperienceScreenState
+    extends State<EntryPointForProjectsExperienceScreen>
     with SingleTickerProviderStateMixin {
   late SMIBool isSideBarClosed;
   bool isSideMenuClosed = true;
@@ -79,7 +79,9 @@ class _EntryPointForProfileScreenForViewersState
                   scale: scalAnimation.value,
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(24)),
-                    child: ProfileScreenForViewers(email: widget.email),
+                    child: ProjectsExperienceScreen(
+                      model: widget.model,
+                    ),
                   ),
                 ),
               ),

@@ -7,9 +7,9 @@ import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/models/user_portfolio.dart';
 
 import 'package:http/http.dart' as http;
-import 'package:rive_animation/screens/portfolio_code_screen.dart';
-import '../components/custom_bottom_navigation_bar.dart';
-import '../credentials/supabase.credentials.dart';
+import 'package:rive_animation/screens/portfolio/portfolio_code_screen.dart';
+import '../../components/custom_bottom_navigation_bar.dart';
+import '../../credentials/supabase.credentials.dart';
 
 class ChooseThemeScreen extends StatefulWidget {
   final UserPortfolio model;

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:rive_animation/screens/set_up_profile_screen.dart';
+import 'package:rive_animation/screens/setup_screens/set_up_profile_screen.dart';
 
 class WaveTransitionLoader extends StatefulWidget {
   const WaveTransitionLoader({super.key});

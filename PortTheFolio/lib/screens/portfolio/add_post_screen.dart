@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/uploading_loading_screen.dart';
+import 'package:rive_animation/screens/setup_screens/uploading_loading_screen.dart';
 import 'package:rive_animation/service/post.service.dart';
 
 class AddPostScreen extends StatefulWidget {

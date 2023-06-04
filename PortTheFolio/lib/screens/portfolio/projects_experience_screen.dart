@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/models/user_portfolio.dart';
-import 'package:rive_animation/screens/loading_screen_3.dart';
 
-import '../components/custom_bottom_navigation_bar.dart';
+import '../../components/custom_bottom_navigation_bar.dart';
+import '../animation_screens/loading_screen_3.dart';
 
 class ProjectsExperienceScreen extends StatefulWidget {
   final UserPortfolio model;

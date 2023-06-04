@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/entry_point.dart';
 
 import 'package:rive_animation/widgets/glowing_btn.dart';
+
+import '../entrypoint_screens/entry_point.dart';
 
 class AllSetupScreen extends StatefulWidget {
   const AllSetupScreen({super.key});

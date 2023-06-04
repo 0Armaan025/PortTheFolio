@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rive_animation/models/user_portfolio.dart';
-import 'package:rive_animation/screens/entry_point_for_projects_experience_screen.dart';
 
-import '../components/custom_bottom_navigation_bar.dart';
-import '../constants.dart';
+import '../../components/custom_bottom_navigation_bar.dart';
+import '../../constants.dart';
+import '../entrypoint_screens/entry_point_for_projects_experience_screen.dart';
 
 class PortfolioMakingStartupScreen extends StatefulWidget {
   const PortfolioMakingStartupScreen({super.key});

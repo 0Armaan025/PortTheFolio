@@ -6,18 +6,21 @@ import 'package:rive_animation/components/menu_btn.dart';
 import 'package:rive_animation/components/side_menu.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/models/user_portfolio.dart';
-import 'package:rive_animation/screens/choose_theme_screen.dart';
 import 'package:rive_animation/utils/rive_utils.dart';
 
-class EntryPointForChooseTheme extends StatefulWidget {
+import '../story_screens/story_narrative_screen.dart';
+
+class EntryPointForStoryNarrativeScreen extends StatefulWidget {
   final UserPortfolio model;
-  const EntryPointForChooseTheme({super.key, required this.model});
+  const EntryPointForStoryNarrativeScreen({super.key, required this.model});
 
   @override
-  State<EntryPointForChooseTheme> createState() => _EntryPointForChooseTheme();
+  State<EntryPointForStoryNarrativeScreen> createState() =>
+      _EntryPointForStoryNarrativeScreenState();
 }
 
-class _EntryPointForChooseTheme extends State<EntryPointForChooseTheme>
+class _EntryPointForStoryNarrativeScreenState
+    extends State<EntryPointForStoryNarrativeScreen>
     with SingleTickerProviderStateMixin {
   late SMIBool isSideBarClosed;
   bool isSideMenuClosed = true;
@@ -76,7 +79,7 @@ class _EntryPointForChooseTheme extends State<EntryPointForChooseTheme>
                   scale: scalAnimation.value,
                   child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(24)),
-                    child: ChooseThemeScreen(
+                    child: StoryNarrativeScreen(
                       model: widget.model,
                     ),
                   ),

@@ -4,23 +4,25 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:lottie/lottie.dart';
 import 'package:rive_animation/constants.dart';
-import 'package:rive_animation/screens/wave_transition_loader.dart';
 
-class LoadingScreen extends StatefulWidget {
-  const LoadingScreen({super.key});
+import '../entrypoint_screens/entry_point_for_portfolio_making_startup_screen.dart';
+
+class LoadingScreen2 extends StatefulWidget {
+  const LoadingScreen2({super.key});
 
   @override
-  State<LoadingScreen> createState() => _LoadingScreenState();
+  State<LoadingScreen2> createState() => _LoadingScreen2State();
 }
 
-class _LoadingScreenState extends State<LoadingScreen> {
+class _LoadingScreen2State extends State<LoadingScreen2> {
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
     Timer(
       Duration(milliseconds: 3000),
-      () => moveScreenWithTransition(context, WaveTransitionLoader()),
+      () => moveScreenWithTransition(
+          context, EntryPointForPortfolioMakingStartUpScreen()),
     );
   }
 
@@ -39,7 +41,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
             height: 700,
             child: Center(
               child: Lottie.network(
-                  'https://assets6.lottiefiles.com/packages/lf20_x62chJ.json'),
+                  'https://assets7.lottiefiles.com/packages/lf20_q07pKG.json'),
             ),
           ),
           const SizedBox(
@@ -47,7 +49,7 @@ class _LoadingScreenState extends State<LoadingScreen> {
           ),
           Center(
             child: Text(
-              "Loading",
+              "Porting...",
               style: GoogleFonts.poppins(
                 fontSize: 24,
               ),

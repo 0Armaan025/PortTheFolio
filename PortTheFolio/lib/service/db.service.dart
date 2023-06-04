@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:rive_animation/constants.dart';
 import 'package:rive_animation/credentials/supabase.credentials.dart';
-import 'package:rive_animation/screens/all_setup_screen.dart';
+import 'package:rive_animation/screens/setup_screens/all_setup_screen.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class DBService {

@@ -8,7 +8,8 @@ import 'package:rive_animation/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:text_to_speech/text_to_speech.dart';
 
-import '../components/custom_bottom_navigation_bar.dart';
+import '../../components/custom_bottom_navigation_bar.dart';
+
 
 class StoryTimeScreen extends StatefulWidget {
   final String email;
